@@ -609,6 +609,88 @@ section { padding: 100px 0; }
 .card-servico--featured .card-servico__icon { width: 64px; height: 64px; font-size: 26px; }
 .card-servico--featured .card-servico__title { font-size: 20px; }
 .card-servico--featured .card-servico__desc  { font-size: 14px; }
+
+/* ── Background image variants ── */
+.card-servico--pia     { background-image: url('assets/images/pia-bg.png'); }
+.card-servico--sanita  { background-image: url('assets/images/sanita-bg.png'); }
+.card-servico--pressao { background-image: url('assets/images/alta-pressao-bg.png'); }
+.card-servico--ralo    { background-image: url('assets/images/ralo-bg.png'); }
+
+.card-servico--pia,
+.card-servico--sanita,
+.card-servico--pressao,
+.card-servico--ralo {
+  background-color: #0d2a2d;
+  background-size: cover;
+  background-position: center;
+  border-color: rgba(149,217,0,0.35);
+}
+
+.card-servico--pia::before,
+.card-servico--sanita::before,
+.card-servico--pressao::before,
+.card-servico--ralo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(5,22,25,0.82) 0%, rgba(0,45,52,0.72) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card-servico--pia > *,
+.card-servico--sanita > *,
+.card-servico--pressao > *,
+.card-servico--ralo > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card-servico--pia .card-servico__title,
+.card-servico--sanita .card-servico__title,
+.card-servico--pressao .card-servico__title,
+.card-servico--ralo .card-servico__title {
+  color: #ffffff;
+}
+
+.card-servico--pia .card-servico__desc,
+.card-servico--sanita .card-servico__desc,
+.card-servico--pressao .card-servico__desc,
+.card-servico--ralo .card-servico__desc {
+  color: rgba(255,255,255,0.82);
+}
+
+.card-servico--pia .card-servico__desc strong,
+.card-servico--sanita .card-servico__desc strong,
+.card-servico--pressao .card-servico__desc strong,
+.card-servico--ralo .card-servico__desc strong {
+  color: #b8e835;
+}
+
+.card-servico--pia .card-servico__link,
+.card-servico--sanita .card-servico__link,
+.card-servico--pressao .card-servico__link,
+.card-servico--ralo .card-servico__link {
+  color: #111111;
+  background: rgba(149,217,0,0.92);
+  border-color: transparent;
+}
+
+.card-servico--pia .card-servico__link:hover,
+.card-servico--sanita .card-servico__link:hover,
+.card-servico--pressao .card-servico__link:hover,
+.card-servico--ralo .card-servico__link:hover {
+  background: #95d900;
+  border-color: transparent;
+  color: #111111;
+}
+
+.card-servico--pia:hover,
+.card-servico--sanita:hover,
+.card-servico--pressao:hover,
+.card-servico--ralo:hover {
+  border-color: #95d900;
+}
 /* ================================================
    COMO FUNCIONA
    ================================================ */

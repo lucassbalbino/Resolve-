@@ -14,19 +14,14 @@
   const servicesSection = document.getElementById('servicos');
 
   // ---- Header: efeito scroll ----
-  const headerLogo = document.getElementById('header-logo');
-  const LOGO_LIGHT = 'assets/icons/logo_horizontal_fundo-azul.png';
-  const LOGO_DARK  = 'assets/icons/logo_horizontal_fundo-branco.png';
 
   const updateScrollEffects = () => {
     const scrollY = window.scrollY;
 
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
-      if (headerLogo) headerLogo.src = LOGO_DARK;
     } else {
       header.classList.remove('scrolled');
-      if (headerLogo) headerLogo.src = LOGO_LIGHT;
     }
 
     if (servicesSection) {
@@ -107,16 +102,12 @@
   if (telefoneInput) {
     telefoneInput.addEventListener('input', (e) => {
       let v = e.target.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 9) v = v.slice(0, 9);
 
-      if (v.length > 10) {
-        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
-      } else if (v.length > 6) {
-        v = v.replace(/^(\d{2})(\d{4,5})(\d{0,4})/, '($1) $2-$3');
-      } else if (v.length > 2) {
-        v = v.replace(/^(\d{2})(\d+)/, '($1) $2');
-      } else if (v.length > 0) {
-        v = '(' + v;
+      if (v.length > 6) {
+        v = v.replace(/^(\d{3})(\d{3})(\d{0,3})$/, '$1 $2 $3').trim();
+      } else if (v.length > 3) {
+        v = v.replace(/^(\d{3})(\d{0,3})$/, '$1 $2');
       }
 
       e.target.value = v;
@@ -125,9 +116,9 @@
 
   // ---- Formulário: redireciona para WhatsApp ----
   const servicoLabels = {
-    'esgoto':          'Desentupimento de Esgoto',
-    'pia-vaso':        'Pia / Vaso Sanitário',
-    'fossa':           'Limpeza de Fossa',
+    'esgoto':          'Desentupimento de Esgotos',
+    'pia-vaso':        'Lava-loiça / Sanita',
+    'fossa':           'Limpeza de Fossa Séptica',
     'inspecao-video':  'Inspeção por Vídeo',
     'hidrojateamento': 'Hidrojateamento',
   };
@@ -148,11 +139,11 @@
         return;
       }
 
-      let texto = `Olá! Gostaria de solicitar um serviço.\n\n`;
+      let texto = `Olá! Gostaria de solicitar uma intervenção.\n\n`;
       texto += `*Nome:* ${nome}\n`;
-      texto += `*Telefone:* ${telefone}\n`;
+      texto += `*Telemóvel:* ${telefone}\n`;
       texto += `*Serviço:* ${servicoLabels[servico] || servico}`;
-      if (mensagem) texto += `\n*Descrição:* ${mensagem}`;
+      if (mensagem) texto += `\n*Descrição do problema:* ${mensagem}`;
 
       const url = `https://wa.me/351937557049?text=${encodeURIComponent(texto)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
@@ -185,7 +176,7 @@
     var ACCENT_THEME = {dark: '#314036', mid: '#73896e', light: '#cadcbe', seam: 'rgba(243,255,232,0.78)', neon: 'rgba(149,217,0,0.25)'};
     var PW       = 16;
     var CELL     = PW;
-    var TICK_MS  = 50;
+    var TICK_MS  = 62;
     var W, H, pipes, frameId, pixelCount;
     var lastTick = 0;
     var DIRS = [
@@ -224,6 +215,53 @@
       grad.addColorStop(0.76, p.theme.mid);
       grad.addColorStop(1, p.theme.dark);
       return grad;
+    }
+
+    function drawNeonSmudgeTrail(p, nx, ny) {
+      var mx = (p.x + nx) * 0.5;
+      var my = (p.y + ny) * 0.5;
+      var horizontal = p.y === ny;
+
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+
+      for (var i = 0; i < 3; i++) {
+        var jitterAlong = (Math.random() - 0.5) * CELL * 0.42;
+        var jitterCross = (Math.random() - 0.5) * PW * 0.95;
+        var cx = mx + (horizontal ? jitterAlong : jitterCross);
+        var cy = my + (horizontal ? jitterCross : jitterAlong);
+        var radius = PW * (0.58 + Math.random() * 0.6);
+
+        var blob = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+        blob.addColorStop(0, 'rgba(149,217,0,0.2)');
+        blob.addColorStop(0.52, 'rgba(149,217,0,0.1)');
+        blob.addColorStop(1, 'rgba(149,217,0,0)');
+
+        ctx.fillStyle = blob;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.shadowColor = 'rgba(149,217,0,0.18)';
+      ctx.shadowBlur = 11;
+      ctx.strokeStyle = 'rgba(149,217,0,0.08)';
+      ctx.lineWidth = PW * 0.85;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      if (horizontal) {
+        var sy = p.y + (Math.random() - 0.5) * PW * 0.46;
+        ctx.moveTo(p.x, sy);
+        ctx.lineTo(nx, sy);
+      } else {
+        var sx = p.x + (Math.random() - 0.5) * PW * 0.46;
+        ctx.moveTo(sx, p.y);
+        ctx.lineTo(sx, ny);
+      }
+      ctx.stroke();
+
+      ctx.restore();
     }
 
     function drawPipeSegment(p, nx, ny) {
@@ -358,6 +396,7 @@
           return;
         }
 
+        drawNeonSmudgeTrail(p, nx, ny);
         drawPipeSegment(p, nx, ny);
 
         p.x = nx; p.y = ny; p.steps++;
@@ -400,6 +439,10 @@
     resize();
   }
 
-  document.querySelectorAll('canvas.pipe-bg').forEach(function(c) { initPipeBackground(c); });
+  // Temporary toggle: disable animated background pipes.
+  var ENABLE_PIPE_BG = false;
+  if (ENABLE_PIPE_BG) {
+    document.querySelectorAll('canvas.pipe-bg').forEach(function(c) { initPipeBackground(c); });
+  }
 
 })();

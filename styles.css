@@ -134,7 +134,7 @@ section { padding: 100px 0; }
 }
 .header.scrolled {
   background:
-    url('assets/images/Gradiente-03.png') center/cover no-repeat;
+    url('assets/images/Gradiente-03.webp') center/cover no-repeat;
   box-shadow: 0 10px 28px rgba(0,58,64,0.28);
   border-bottom-color: rgba(149,217,0,0.26);
   backdrop-filter: blur(6px);
@@ -207,7 +207,7 @@ section { padding: 100px 0; }
 .hero__bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  background-image: url('assets/images/bg-image-overlay.jpg');
+  background-image: url('assets/images/bg-image-overlay.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -217,7 +217,7 @@ section { padding: 100px 0; }
 }
 .hero__bg::before {
   content: ''; position: absolute; inset: 0;
-  background-image: url('assets/images/Gradiente-02.png');
+  background-image: url('assets/images/Gradiente-02.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -323,7 +323,7 @@ section { padding: 100px 0; }
   background-color: var(--secondary);
   background-image:
     linear-gradient(rgba(244,244,244,0.6  ), rgba(244,244,244,0.6)),
-    url('assets/images/Gradiente-branco-03.png');
+    url('assets/images/Gradiente-branco-03.webp');
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -425,7 +425,7 @@ section { padding: 100px 0; }
 .cta-24h__bg::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: url('assets/images/bg-cta.png');
+  background-image: url('assets/images/bg-cta.webp');
   background-size: cover;
   background-position: center 63%;
   opacity: 0.95;
@@ -434,7 +434,7 @@ section { padding: 100px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/Gradiente-02.png');
+  background-image: url('assets/images/Gradiente-02.webp');
   background-size: cover;
   background-position: left center;
   opacity: 0.8;
@@ -611,10 +611,10 @@ section { padding: 100px 0; }
 .card-servico--featured .card-servico__desc  { font-size: 14px; }
 
 /* ── Background image variants ── */
-.card-servico--pia     { background-image: url('assets/images/pia-bg.png'); }
-.card-servico--sanita  { background-image: url('assets/images/sanita-bg.png'); }
-.card-servico--pressao { background-image: url('assets/images/alta-pressao-bg.png'); }
-.card-servico--ralo    { background-image: url('assets/images/ralo-bg.png'); }
+.card-servico--pia     { background-image: url('assets/images/pia-bg.webp'); }
+.card-servico--sanita  { background-image: url('assets/images/sanita-bg.webp'); }
+.card-servico--pressao { background-image: url('assets/images/alta-pressao-bg.webp'); }
+.card-servico--ralo    { background-image: url('assets/images/ralo-bg.webp'); }
 
 .card-servico--pia,
 .card-servico--sanita,
@@ -698,7 +698,7 @@ section { padding: 100px 0; }
   background-color: var(--white);
   background-image:
     linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-    url('assets/images/Gradiente-branco-02.png');
+    url('assets/images/Gradiente-branco-02.webp');
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -795,7 +795,7 @@ section { padding: 100px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/bg-image-overlay.jpg');
+  background-image: url('assets/images/bg-image-overlay.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -807,7 +807,7 @@ section { padding: 100px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/Gradiente-03.png');
+  background-image: url('assets/images/Gradiente-03.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -951,7 +951,7 @@ section { padding: 100px 0; }
   background-color: var(--secondary);
   background-image:
     linear-gradient(rgba(244,244,244,0.6), rgba(244,244,244,0.6)),
-    url('assets/images/Gradiente-branco-01.png');
+    url('assets/images/Gradiente-branco-01.webp');
   background-size: cover, cover;
   background-position: center, center;
   background-repeat: no-repeat, no-repeat;
@@ -1031,7 +1031,7 @@ section { padding: 100px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/bg-image-overlay.jpg');
+  background-image: url('assets/images/bg-image-overlay.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1041,7 +1041,7 @@ section { padding: 100px 0; }
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/Gradiente-01.png');
+  background-image: url('assets/images/Gradiente-01.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

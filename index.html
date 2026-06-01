@@ -6,10 +6,15 @@
   <meta name="description" content="Resolve+ — Desentupimentos profissionais com tecnologia e rapidez. Esgotos, lava-loiça, sanitas, fossas sépticas, inspeção por vídeo e hidrojateamento. Assistência 24h." />
   <title>Resolve+ | Tecnologia aplicada à solução</title>
 
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.png" sizes="48x48 32x32 16x16" />
+  <link rel="icon" type="image/png" href="assets/icons/icone_fundo-azul.png" sizes="any" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/images/hero-sem-fundo2.webp" as="image" type="image/webp" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" /></noscript>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,8 +23,14 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#inicio" class="logo">
-        <img id="header-logo" src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" />
-        <img id="header-logo-mobile" src="assets/icons/logo_mobile.png" alt="Resolve+" />
+        <picture>
+          <source srcset="assets/icons/logo_horizontal_fundo-azul.webp" type="image/webp" />
+          <img id="header-logo" src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" />
+        </picture>
+        <picture>
+          <source srcset="assets/icons/logo_mobile.webp" type="image/webp" />
+          <img id="header-logo-mobile" src="assets/icons/logo_mobile.png" alt="Resolve+" />
+        </picture>
       </a>
 
       <nav class="nav" id="nav">
@@ -46,7 +57,10 @@
     <div class="container hero__content">
       <div class="hero__text">
         <div class="hero__brand" aria-label="Resolve+">
-          <img src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" class="hero__brand-logo" />
+          <picture>
+            <source srcset="assets/icons/logo_horizontal_fundo-azul.webp" type="image/webp" />
+            <img src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" class="hero__brand-logo" />
+          </picture>
         </div>
 
         <span class="hero__badge">
@@ -77,7 +91,10 @@
       </div>
 
       <div class="hero__image-wrap" aria-hidden="true">
-        <img src="assets/images/hero-sem-fundo2.png" alt="Técnico Resolve+ em ação" class="hero__image" />
+        <picture>
+          <source srcset="assets/images/hero-sem-fundo2.webp" type="image/webp" />
+          <img src="assets/images/hero-sem-fundo2.png" alt="Técnico Resolve+ em ação" class="hero__image" fetchpriority="high" />
+        </picture>
       </div>
     </div>
 
@@ -336,7 +353,10 @@
     <div class="container footer__grid">
       <div class="footer__brand">
          <a href="#inicio" class="logo">
-          <img id="footer-logo" src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" />
+          <picture>
+            <source srcset="assets/icons/logo_horizontal_fundo-azul.webp" type="image/webp" />
+            <img id="footer-logo" src="assets/icons/logo_horizontal_fundo-azul.png" alt="Resolve+" loading="lazy" />
+          </picture>
          </a>
         <p>Tecnologia aplicada à solução. Desentupimentos profissionais com agilidade, qualidade e garantia.</p>
       </div>

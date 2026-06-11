@@ -1219,7 +1219,7 @@ section { padding: 100px 0; }
   .section-header { margin-bottom: 48px; }
 
   .hero {
-    height: 100svh;
+    height: auto;
     min-height: 100svh;
   }
 
@@ -1244,31 +1244,43 @@ section { padding: 100px 0; }
   .nav__link:hover { background: var(--secondary); }
   .header__cta { display: none; }
 
-  .hero__title   { letter-spacing: -0.5px; }
+  .hero__title   {
+    letter-spacing: -0.5px;
+    font-size: clamp(26px, 7.4vw, 38px);
+    margin-bottom: 12px;
+  }
+  .hero__badge {
+    font-size: 14px;
+    padding: 6px 14px;
+    margin-bottom: 0;
+  }
   .hero__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100%;
+    min-height: 100svh;
     grid-template-columns: 1fr;
-    padding-top: calc(48px + env(safe-area-inset-top));
-    padding-bottom: 12px;
-    gap: 10px;
+    padding-top: calc(64px + env(safe-area-inset-top));
+    padding-bottom: 40px;
+    gap: 14px;
+    overflow: visible;
     transform: none;
     opacity: 1;
   }
   .hero__image-wrap {
     display: flex;
+    justify-content: center;
     order: -1;
-    width: min(88vw, 360px);
+    width: min(72vw, 300px);
+    margin: 0 auto;
     align-self: center;
     transform: none;
-    margin-bottom: -2px;
   }
   .hero__image {
-    max-height: 46svh;
+    max-height: 36svh;
     width: 100%;
+    margin: 0 auto;
   }
   .hero__text {
     width: 100%;
@@ -1281,10 +1293,12 @@ section { padding: 100px 0; }
     max-width: 36ch;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
+    font-size: 14px;
   }
   .hero__scroll { display: none; }
   .hero__trust      { display: none; }
-  .hero__brand-logo { width: clamp(220px, 70vw, 320px); }
+  .hero__brand-logo { width: clamp(180px, 56vw, 260px); }
   .hero__actions    {
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1303,10 +1317,16 @@ section { padding: 100px 0; }
 
   .servicos__grid             { grid-auto-rows: auto; }
   .servicos__grid .card-servico:nth-child(n+5) { display: none; }
-  .card-servico               { aspect-ratio: 1 / 1; }
+  .card-servico               { aspect-ratio: 1 / 1; justify-content: flex-end; padding: 18px; }
   .card-servico--featured     { grid-row: span 1; }
   .card-servico--featured-hor { grid-column: span 1; }
   .card-servico--wide         { grid-column: span 1; }
+
+  /* Mobile: mostrar apenas o título do serviço */
+  .card-servico__icon,
+  .card-servico__desc,
+  .card-servico__link { display: none; }
+  .card-servico__title { margin-bottom: 0; font-size: 17px; line-height: 1.25; }
 
   .depoimentos {
     padding: 84px 0 94px;
